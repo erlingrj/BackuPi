@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
-pcName="erling-dell-laptop"
+pcName=erling-dell-laptop
 backupPath="/home/bu/${pcName}/current/"
 PiAddr="bu@10.147.20.85"
 
 
 #check for new month
-ssh bu@10.147.20.85 '/home/bu/backups.sh ${pcName} newMonth'
-# Run rsync backup
-rsync -avzpH  --partial --delete ~/ "${PiAddr}:${backupPath}"
+ssh ${PiAddr} "/home/bu/backups.sh ${pcName} newMonth"
+
+# Run rsync backup home folder
+#rsync -avzpH --partial --delete ~/ "${PiAddr}:${backupPath}"
+
 # Make backup and check regarding free space
- ssh "${PiAaddr} '/home/bu/backups.sh ${pcName} hardLink'
+ssh ${PiAddr} "/home/bu/backups.sh ${pcName} hardLink"

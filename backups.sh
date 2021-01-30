@@ -14,6 +14,7 @@ function checkMonth ()
 {
         now=$(date +"%Y-%m")
         last=$(<checkMonth.txt)
+	echo "This month=${now} last=${last}"
         if [[ ${now} != ${last} ]]
         then
                 # New Month
